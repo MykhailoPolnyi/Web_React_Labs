@@ -7,4 +7,4 @@ export const Logo = (props) => (
         <FireOutlined />
         AquaStore
     </LogoStyled>
-)
+);

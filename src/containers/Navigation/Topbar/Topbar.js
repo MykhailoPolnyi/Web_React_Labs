@@ -8,4 +8,4 @@ export const Topbar = () => (
         <Logo style={{fontSize:'2.5em'}} />
         <Navbar />
     </TopbarStyled>
-)
+);

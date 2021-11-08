@@ -34,6 +34,10 @@ export const NavbarStyled = styled.nav`
     }
   }
 
+  li:hover {
+    background-color: rgb(248, 157, 0);
+  }
+
   li.chosen {
     background-color: rgb(241, 146, 55);
   }

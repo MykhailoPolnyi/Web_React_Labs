@@ -23,4 +23,4 @@ export const Footer = () => (
             @AquaStore. All rights reserved
         </RightsSection>
     </FooterStyled>
-)
+);

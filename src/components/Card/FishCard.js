@@ -1,17 +1,21 @@
-import styled from "styled-components";
+import React from "react";
 import 'antd/dist/antd.css';
 import {Card} from "antd";
 
-export const FishCard = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  img {
-    width: 150px;
-  };
-`;
+export const FishCard = (props) => (
+    <Card
+        style={{width: "150px"}}
+        hoverable
+        cover={<img src={props.image} alt="example" style={{width:'150px'}}  />}>
+        <Card.Meta
+            title={props.name}
+            description={
+                <div>
+                    <p>Lifetime: {props.lifetime}</p>
+                    <p>Type: {props.type}</p>
+                    <p>Weight: {props.weight}</p>
+                </div>
+            }
+        />
+    </Card>
+);

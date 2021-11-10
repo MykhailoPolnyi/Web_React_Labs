@@ -4,11 +4,11 @@ import {Card} from "antd";
 
 export const FishCard = (props) => (
     <Card
-        style={{width: "200px"}}
+        style={{width: "150px"}}
         hoverable
-        cover={<img src={props.image} alt="example" style={{width:'200px'}}  />}>
+        cover={<img src={props.image} alt="example" style={{width:'150px'}}  />}>
         <Card.Meta
-            title={props.title}
+            title={props.name}
             description={
                 <div>
                     <p>Lifetime: {props.lifetime}</p>

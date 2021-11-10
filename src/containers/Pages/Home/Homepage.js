@@ -6,24 +6,25 @@ import {FishCard} from "../../../components/Card/FishCard";
 import sword_fish from "../../../images/swordfish.jpg";
 import clownfish from "../../../images/coolfish.jpg";
 
+
 export const Homepage = () => (
     <HomepageStyled>
         <WelcomeSection />
         <CardStorage>
             <FishCard image={sword_fish}
-                      title="Gary"
+                      name="Gary"
                       lifetime="3 years"
                       type="Swordfish"
                       weight="40 kg"
             />
             <FishCard image={clownfish}
-                      title="Gary"
+                      name="Gary"
                       lifetime="1 year"
                       type="Clownfish"
                       weight="3 kg"
             />
             <FishCard image={clownfish}
-                      title="Lorem"
+                      name="Lorem"
                       lifetime="2 years"
                       type="Clownfish"
                       weight="1 kg"

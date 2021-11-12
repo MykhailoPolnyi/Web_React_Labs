@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const HomepageStyled = styled.main`
+export const PageStyled = styled.main`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 80%;
+  width: 100%;
   margin: auto;
   justify-content: space-evenly;
+  align-items: center;
 `;

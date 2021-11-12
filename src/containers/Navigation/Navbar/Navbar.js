@@ -1,13 +1,17 @@
 import React from "react";
-import {NavbarStyled} from "./Navbar.styled";
+import {NavbarStyled, NavLinkStyled} from "./Navbar.styled";
 
 export const Navbar = () => (
    <NavbarStyled>
-       <ul>
-           <li className={"chosen"}>Home</li>
-           <li>Catalog</li>
-           <li>Cart</li>
-       </ul>
+       <NavLinkStyled to={'/'}>
+           Home
+       </NavLinkStyled>
+       <NavLinkStyled to={'/catalog'}>
+           Catalog
+       </NavLinkStyled>
+       <NavLinkStyled to={'/cart'}>
+           Cart
+       </NavLinkStyled>
    </NavbarStyled>
 )
 

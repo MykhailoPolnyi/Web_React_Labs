@@ -5,6 +5,6 @@ export const PageStyled = styled.main`
   flex-direction: column;
   width: 100%;
   margin: auto;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 `;

@@ -12,6 +12,7 @@ export const Homepage = () => (
         <WelcomeSection />
         <CardStorage>
             <FishCard image={sword_fish}
+                      
                       name="Gary"
                       lifetime="3"
                       type="Swordfish"

@@ -16,16 +16,17 @@ export const createFishCard = (fish) => {
     else {
         image = clownfish;
     }
+    console.log(fish);
     return (
         <FishCard image = {image}
                   name = {fish.name}
                   lifetime={fish.lifetime_years}
                   type={fish.animal_type}
-                  weight={fish.weight_in_kg}
+                  id={fish.id}
+                  key={fish.id}
         />
     )
 }
-
 
 export const getFishCards = (fishList) => {
     return fishList.map(createFishCard);

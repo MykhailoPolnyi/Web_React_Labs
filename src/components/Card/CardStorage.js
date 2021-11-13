@@ -6,6 +6,6 @@ export const CardStorage = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1em 2em;
+  margin: 3em 2em;
   width: 80%;
 `;

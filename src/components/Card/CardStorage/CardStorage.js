@@ -37,7 +37,7 @@ export const
                     else setFishList(receivedFishList.slice(0, fishListSize))
                 }
             )
-            .catch( e =>  {
+            .catch( () =>  {
                 console.log("Error occurred during loading data from server");
             })
     }, [fishListSize, filters]);
@@ -46,7 +46,7 @@ export const
             <CardStorageStyled>
                 {
                     (fishList.length !== 0) ?
-                        getFishCards(fishList) : <h2>Catalog is empty</h2>
+                        getFishCards(fishList) : <h2>Nothing found</h2>
                 }
             </CardStorageStyled>
             {

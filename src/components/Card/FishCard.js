@@ -15,7 +15,7 @@ export const FishCard = ({image, name, lifetime, type, id}) => (
                 <div>
                     <p>Lifetime: {lifetime} year(s)</p>
                     <p>Type: {type}</p>
-                    <NavLink to={`/catalog/fish?id=${id}`}>
+                    <NavLink to={`/catalog/fish/${id}`}>
                         <Button>
                             View more...
                         </Button>

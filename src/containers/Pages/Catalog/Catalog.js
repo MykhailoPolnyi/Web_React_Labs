@@ -3,7 +3,7 @@ import {PageStyled} from "../Page.styled";
 import {CardStorage} from "../../../components/Card/CardStorage/CardStorage";
 import {FISH_CARD_SIZE} from "../../../const/Constants";
 import {ActionPanelStyled} from "../../../components/ActionPannel/ActionPanel.styled";
-import {FilterInput} from "../../../components/ActionPannel/ActionPanel";
+import {FilterInput} from "../../../components/ActionPannel/FilterInput";
 
 export const Catalog = () => {
     const [filterName, setFilterName] = useState("");

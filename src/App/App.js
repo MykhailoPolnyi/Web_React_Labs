@@ -5,16 +5,20 @@ import {Footer} from "../containers/Navigation/Footer/Footer";
 import {Homepage} from "../containers/Pages/Home/Homepage";
 import {Catalog} from "../containers/Pages/Catalog/Catalog";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {FishPage} from "../containers/Pages/FishPage/FishPage";
 
 export const App = () => (
     <BrowserRouter>
         <div className="App">
             <Topbar />
             <Routes>
-                <Route path={'/'} element={<Homepage />} />
-                <Route path={'/catalog'} element={<Catalog />} />
-                <Route path={'/cart'} element={<h1>Hello cart</h1>} />
-                <Route path={'/catalog/fish'} element={<div>AA</div>} />
+                <Route path='/' element={<Homepage />} />
+                <Route path={'/catalog'} >
+                    <Route path='' element={<Catalog />} />
+                    <Route path='fish/:fishId' element={<FishPage />} />
+                </Route>
+                <Route path='/cart' element={<h1>Hello cart</h1>} />
+                <Route path='*' element={<h1>404</h1>} />
             </Routes>
             <Footer />
         </div>

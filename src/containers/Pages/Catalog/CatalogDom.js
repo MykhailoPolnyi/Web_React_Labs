@@ -17,12 +17,12 @@ export const createFishCard = (fish) => {
         image = clownfish;
     }
     return (
-        <FishCard image = {image}
+        <FishCard key={fish.id}
+                  image = {image}
                   name = {fish.name}
                   lifetime={fish.lifetime_years}
                   type={fish.animal_type}
                   id={fish.id}
-                  key={fish.id}
         />
     )
 }

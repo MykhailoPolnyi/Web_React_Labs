@@ -1,11 +1,10 @@
 import React from 'react';
 
-const FishPage = () => {
+export const FishPage = () => {
+
     return (
         <div>
 
         </div>
     );
 }
-
-export default FishPage;

@@ -16,7 +16,6 @@ export const createFishCard = (fish) => {
     else {
         image = clownfish;
     }
-    console.log(fish);
     return (
         <FishCard image = {image}
                   name = {fish.name}

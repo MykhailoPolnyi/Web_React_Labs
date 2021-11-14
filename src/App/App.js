@@ -1,9 +1,9 @@
 import React from "react";
 import './App.css';
-import {Topbar} from "../Navigation/Topbar/Topbar";
-import {Footer} from "../Navigation/Footer/Footer";
-import {Homepage} from "../Pages/Home/Homepage";
-import {Catalog} from "../Pages/Catalog/Catalog";
+import {Topbar} from "../containers/Navigation/Topbar/Topbar";
+import {Footer} from "../containers/Navigation/Footer/Footer";
+import {Homepage} from "../containers/Pages/Home/Homepage";
+import {Catalog} from "../containers/Pages/Catalog/Catalog";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 export const App = () => (

@@ -7,4 +7,5 @@ export const CardStorageStyled = styled.div`
   justify-content: center;
   margin: 3em 2em;
   width: 100%;
+  min-height: 40vh;
 `;

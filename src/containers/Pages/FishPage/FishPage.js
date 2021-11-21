@@ -5,20 +5,23 @@ import shark from "../../../images/shark.jpg"
 import swordfish from "../../../images/swordfish.jpg"
 import coolfish from "../../../images/coolfish.jpg"
 import {FishPageStyled} from "./FishPage.styled";
+import {Loader} from "../../../components/loader/Loader";
 
 export const FishPage = () => {
     const {fishId} =  useParams();
     const [fish, setFish] = useState();
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect( () => {
         getFish(fishId)
             .then(receivedFish => {
                 setFish(receivedFish);
+                setIsLoaded(true)
             })
     }, [fishId] );
 
     if (fish === undefined) {
-        return <h1> Not Found </h1>
+        return isLoaded ?  <h1> Not Found </h1> : <Loader />
     }
 
     let image;

@@ -3,11 +3,12 @@ import {getFishList} from "../../../api/Api";
 import {CardStorageStyled} from "./CardStorage.styled";
 import {getFishCards} from "../../../containers/Pages/Catalog/CatalogDom";
 import {Button} from "antd";
+import {Loader} from "../../loader/Loader";
 
-export const
-    CardStorage = ({fishNum, fishIncrement= 1, style, filters}) => {
+export const CardStorage = ({fishNum, fishIncrement= 1, style, filters}) => {
     const [fishListSize, setFishListSize] = useState(fishNum ? fishNum: 0);
     const [fishList, setFishList] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false)
     useEffect (() => {
         getFishList()
             .then(
@@ -35,6 +36,8 @@ export const
                         setFishList(receivedFishList)
                     }
                     else setFishList(receivedFishList.slice(0, fishListSize))
+                    setIsLoaded(true)
+
                 }
             )
             .catch( () =>  {
@@ -46,7 +49,8 @@ export const
             <CardStorageStyled>
                 {
                     (fishList.length !== 0) ?
-                        getFishCards(fishList) : <h2>Nothing found</h2>
+                        getFishCards(fishList) :
+                            isLoaded ? <h2>Nothing found</h2> : <Loader />
                 }
             </CardStorageStyled>
             {

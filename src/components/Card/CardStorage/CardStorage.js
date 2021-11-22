@@ -5,33 +5,14 @@ import {getFishCards} from "../../../containers/Pages/Catalog/CatalogDom";
 import {Button} from "antd";
 import {Loader} from "../../loader/Loader";
 
-export const CardStorage = ({fishNum, fishIncrement= 1, style, filters}) => {
+export const CardStorage = ({fishNum, fishIncrement= 1, style, filters = {name: "", type: ""}}) => {
     const [fishListSize, setFishListSize] = useState(fishNum ? fishNum: 0);
     const [fishList, setFishList] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false)
     useEffect (() => {
-        getFishList()
+        getFishList(filters.type, filters.name)
             .then(
                 receivedFishList => {
-                    if (filters) {
-                        receivedFishList = receivedFishList.filter( (fish) =>
-                            {
-                                const isProperName = fish.name.toLowerCase().search(filters.name) !== -1;
-                                const isProperType = fish.animal_type.toLowerCase().search(filters.type) !== -1;
-                                let isProperLifetime;
-                                if (filters.lifetime) {
-                                    isProperLifetime = fish.lifetime_years === filters.lifetime;
-                                }
-                                else {
-                                    isProperLifetime = true;
-                                }
-                                return (isProperName && isProperType && isProperLifetime);
-                            }
-                        )
-                    }
-                    if (fishListSize >= receivedFishList.length) {
-                        setFishListSize(0);
-                    }
                     if (fishListSize === 0) {
                         setFishList(receivedFishList)
                     }

@@ -5,12 +5,18 @@ import {getFishCards} from "../../../containers/Pages/Catalog/CatalogDom";
 import {Button} from "antd";
 import {Loader} from "../../loader/Loader";
 
-export const CardStorage = ({fishNum, fishIncrement= 1, style, filters = {name: "", type: ""}}) => {
+export const CardStorage = ({fishNum, fishIncrement= 1, style, filters}) => {
     const [fishListSize, setFishListSize] = useState(fishNum ? fishNum: 0);
     const [fishList, setFishList] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [filter, setFilter] = useState({});
+
+    useEffect( () => {
+        setFilter(filters ? filters : {})
+    }, [filters]);
+
     useEffect (() => {
-        getFishList(filters.type, filters.name)
+        getFishList(filter.type, filter.name)
             .then(
                 receivedFishList => {
                     if (fishListSize === 0) {
@@ -24,7 +30,7 @@ export const CardStorage = ({fishNum, fishIncrement= 1, style, filters = {name: 
             .catch( () =>  {
                 console.log("Error occurred during loading data from server");
             })
-    }, [fishListSize, filters]);
+    }, [fishListSize, filter]);
     return (
         <div style={style}>
             <CardStorageStyled>

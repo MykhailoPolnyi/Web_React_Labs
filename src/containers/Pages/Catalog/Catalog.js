@@ -9,7 +9,7 @@ export const Catalog = () => {
     const [filterName, setFilterName] = useState("");
     const [filterType, setFilterType] = useState("");
     const [filterLifetime, setFilterLifetime] = useState(undefined);
-    const [filters, setFilters] = useState(undefined);
+    const [filters, setFilters] = useState({name: ""});
 
     useEffect(() => {
         setFilters({

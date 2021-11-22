@@ -1,19 +1,25 @@
 import React from "react";
 import 'antd/dist/antd.css';
-import {Card} from "antd";
+import {Button, Card} from "antd";
+import {NavLink} from "react-router-dom";
+import {FISH_CARD_MARGIN, FISH_CARD_WIDTH} from "../../const/Constants";
 
-export const FishCard = (props) => (
+export const FishCard = ({image, name, lifetime, type, id}) => (
     <Card
-        style={{width: "150px"}}
+        style={{width: FISH_CARD_WIDTH, margin:FISH_CARD_MARGIN}}
         hoverable
-        cover={<img src={props.image} alt="example" style={{width:'150px'}}  />}>
+        cover={<img src={image} alt="example" style={{height:'150px'}}  />}>
         <Card.Meta
-            title={props.name}
+            title={name}
             description={
                 <div>
-                    <p>Lifetime: {props.lifetime}</p>
-                    <p>Type: {props.type}</p>
-                    <p>Weight: {props.weight}</p>
+                    <p>Lifetime: {lifetime} year(s)</p>
+                    <p>Type: {type}</p>
+                    <NavLink to={`/catalog/fish/${id}`}>
+                        <Button>
+                            View more...
+                        </Button>
+                    </NavLink>
                 </div>
             }
         />

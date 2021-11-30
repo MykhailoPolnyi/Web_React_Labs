@@ -4,7 +4,7 @@ import {Button, Card} from "antd";
 import {NavLink} from "react-router-dom";
 import {FISH_CARD_MARGIN, FISH_CARD_WIDTH} from "../../const/Constants";
 
-export const FishCard = ({image, name, lifetime, type, id}) => (
+export const FishCard = ({image, name, lifetime, type, id, price}) => (
     <Card
         style={{width: FISH_CARD_WIDTH, margin:FISH_CARD_MARGIN}}
         hoverable
@@ -15,6 +15,7 @@ export const FishCard = ({image, name, lifetime, type, id}) => (
                 <div>
                     <p>Lifetime: {lifetime} year(s)</p>
                     <p>Type: {type}</p>
+                    <p>Price: {price}$</p>
                     <NavLink to={`/catalog/fish/${id}`}>
                         <Button>
                             View more...

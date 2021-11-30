@@ -8,12 +8,12 @@ export const FishPageStyled = styled.div`
   justify-content: space-evenly;
   width: 80%;
   font-size: 1.25rem;
-  
+
   img {
     border-radius: 5px;
     height: 300px;
   }
-  
+
   ul {
     text-align: left;
   }
@@ -29,5 +29,20 @@ export const FishPageStyled = styled.div`
     margin: 0;
     padding: 0;
     color: #616161;
+  }
+
+  .image-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    Button {
+      background-color: #fce301;
+    }
+
+    Button:hover {
+      color: orangered;
+    }
   }
 `;

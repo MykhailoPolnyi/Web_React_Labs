@@ -6,6 +6,10 @@ import swordfish from "../../../images/swordfish.jpg"
 import coolfish from "../../../images/coolfish.jpg"
 import {FishPageStyled} from "./FishPage.styled";
 import {Loader} from "../../../components/loader/Loader";
+import {Button} from "antd";
+import {ShoppingCartOutlined} from "@ant-design/icons";
+import {IconStyled} from "../../../components/Icon/Icon.styled";
+
 
 export const FishPage = () => {
     const {fishId} =  useParams();
@@ -37,10 +41,14 @@ export const FishPage = () => {
 
     return (
         <FishPageStyled>
-            <img src={image} alt={fish.name}/>
+            <div className="image-container">
+                <img src={image} alt={fish.name}/>
+                <Button> To Cart <IconStyled component={ShoppingCartOutlined}/> </Button>
+            </div>
             <div className="description">
                 <h1>{fish.name}</h1>
                 <h3>{fish.animal_type}</h3>
+                <h3>Price: {fish.price}$</h3>
                 <ul>
                     <li>Lifetime: {fish.lifetime_years} year(s)</li>
                     <li>Weight: {fish.weight_in_kg} kg</li>

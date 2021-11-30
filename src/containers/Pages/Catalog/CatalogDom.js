@@ -23,6 +23,7 @@ export const createFishCard = (fish) => {
                   lifetime={fish.lifetime_years}
                   type={fish.animal_type}
                   id={fish.id}
+                  price={fish.price}
         />
     )
 }

@@ -28,7 +28,7 @@ export const FishPageStyled = styled.div`
     font-size: 1.5rem;
     margin: 0;
     padding: 0;
-    color: #616161;
+    color: #585858;
   }
 
   .image-container {
@@ -42,7 +42,8 @@ export const FishPageStyled = styled.div`
     }
 
     Button:hover {
-      color: orangered;
+      color: #faac24;
+      border-color: #faac24;
     }
   }
 `;

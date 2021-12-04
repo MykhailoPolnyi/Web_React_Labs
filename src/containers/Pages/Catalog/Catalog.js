@@ -8,16 +8,14 @@ import {FilterInput} from "../../../components/ActionPannel/FilterInput";
 export const Catalog = () => {
     const [filterName, setFilterName] = useState("");
     const [filterType, setFilterType] = useState("");
-    const [filterLifetime, setFilterLifetime] = useState(undefined);
     const [filters, setFilters] = useState({name: ""});
 
     useEffect(() => {
         setFilters({
             name: filterName,
             type: filterType,
-            lifetime: filterLifetime
         })
-    }, [filterName, filterType, filterLifetime])
+    }, [filterName, filterType])
 
     return (
         <PageStyled>
@@ -26,8 +24,6 @@ export const Catalog = () => {
                              onSearch={(value) => setFilterName(value)}/>
                 <FilterInput id="type" placeholder="Enter type..."
                              onSearch={(value) => setFilterType(value)}/>
-                <FilterInput id="lifetime_years" placeholder="Enter lifetime..."
-                             onSearch={(value) => setFilterLifetime(Number(value))}/>
             </ActionPanelStyled>
             <CardStorage filters={filters} style={{width: FISH_CARD_SIZE*6}}/>
         </PageStyled>

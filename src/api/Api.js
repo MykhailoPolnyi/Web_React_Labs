@@ -14,6 +14,8 @@ export const getFish = async (id) => {
     return rawResponse.data
 }
 export const getFishList = async (type = '', name = '') => {
-    const rawResponse = await axios.get(`http://localhost:5000/fish?type=${type}&name=${name}`)
+    const rawResponse = await axios.get(
+        `http://localhost:5000/fish?type=${type.toLowerCase()}&name=${name.toLowerCase()}`
+    )
     return rawResponse.data
 }

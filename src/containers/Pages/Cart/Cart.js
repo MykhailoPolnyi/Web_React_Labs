@@ -1,17 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
 import {PageStyled} from "../Page.styled";
-import {Loader} from "../../../components/loader/Loader";
-import {Counter} from "../../../app/storage/features/fishCart/Counter";
+import {useSelector, useDispatch} from "react-redux";
+import {removeFish, clearCart} from "../../../app/storage/features/fishCart/fishSlice";
+import {getFishCards} from "../../../components/Card/CardStorage/StorageDom";
+import {DeleteButtonStyled} from "../../../components/Buttons/DeleteButton.styled";
 
-export const Cart = (props) => {
-    const [isLoaded, setLoaded] = useState(true);
-    if (!isLoaded) {
-        return <Loader />
+export const Cart = () => {
+    const fishList = useSelector((state) => state.fishInCart.value)
+    const dispatch = useDispatch();
+
+
+    if (fishList.length === 0) {
+        return (<h1>Cart is empty</h1>)
     }
 
     return (
-        <PageStyled>
-            <Counter />
+        <PageStyled style={{height:"100%"}}>
+            <DeleteButtonStyled onClick={() => {dispatch(clearCart())}}>
+                Clear cart
+            </DeleteButtonStyled>
+            <div style={{display:"flex", flexDirection:"row"}}>
+                {
+                    getFishCards(fishList, (fish) =>
+                        (<DeleteButtonStyled onClick={() => {dispatch(removeFish(fish.id))}}>
+                            Remove
+                        </DeleteButtonStyled>)
+                    )
+                }
+            </div>
         </PageStyled>
     )
 }

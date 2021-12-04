@@ -1,11 +1,11 @@
 import React from "react";
-import {FishCard} from "../../../components/Card/FishCard";
+import {FishCard} from "../FishCard";
 import swordfish from "../../../images/swordfish.jpg";
 import clownfish from "../../../images/coolfish.jpg";
 import shark from "../../../images/shark.jpg";
 
 
-export const createFishCard = (fish) => {
+export const createFishCard = (fish, addOns=undefined) => {
     let image;
     if (fish.animal_type.toString().toLocaleLowerCase().search("shark") !== -1) {
         image = shark;
@@ -24,10 +24,11 @@ export const createFishCard = (fish) => {
                   type={fish.animal_type}
                   id={fish.id}
                   price={fish.price}
+                  addOns={addOns}
         />
     )
 }
 
-export const getFishCards = (fishList) => {
-    return fishList.map(createFishCard);
+export const getFishCards = (fishList, addOnCallback = () => undefined) => {
+    return fishList.map((fish) => createFishCard(fish, addOnCallback(fish)));
 }

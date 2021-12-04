@@ -3,17 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const fishSlice = createSlice({
     name: "fish",
     initialState: {
-        value: 0
+        value: []
     },
     reducers: {
-        addFish: (state) => {
-            state.value += 1
+        addFish: (state, payloadFish) => {
+            state.value.push(payloadFish.payload)
         },
-        removeFish: state => {
-            state.value -= 1
+        removeFish: (state, payloadId) => {
+            state.value = state.value.filter((fish) => fish.id !== payloadId.payload)
         },
         clearCart: state => {
-            state.value = 0
+            state.value = []
         }
     }
 })

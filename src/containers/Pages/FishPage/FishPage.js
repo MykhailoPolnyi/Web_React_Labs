@@ -10,11 +10,16 @@ import {Button} from "antd";
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import {IconStyled} from "../../../components/Icon/Icon.styled";
 
+import {addFish} from "../../../app/storage/features/fishCart/fishSlice";
+import {useDispatch} from "react-redux";
+
 
 export const FishPage = () => {
     const {fishId} =  useParams();
     const [fish, setFish] = useState();
     const [isLoaded, setIsLoaded] = useState(false);
+
+    const dispatch = useDispatch();
 
     useEffect( () => {
         getFish(fishId)
@@ -43,7 +48,7 @@ export const FishPage = () => {
         <FishPageStyled>
             <div className="image-container">
                 <img src={image} alt={fish.name}/>
-                <Button> To Cart <IconStyled component={ShoppingCartOutlined}/> </Button>
+                <Button onClick={() => {dispatch(addFish(fish))}}> To Cart <IconStyled component={ShoppingCartOutlined}/> </Button>
             </div>
             <div className="description">
                 <h1>{fish.name}</h1>

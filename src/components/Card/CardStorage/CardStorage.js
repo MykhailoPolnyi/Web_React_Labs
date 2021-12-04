@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getFishList} from "../../../api/Api";
 import {CardStorageStyled} from "./CardStorage.styled";
-import {getFishCards} from "../../../containers/Pages/Catalog/CatalogDom";
+import {getFishCards} from "./StorageDom";
 import {Button} from "antd";
 import {Loader} from "../../loader/Loader";
 

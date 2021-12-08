@@ -6,11 +6,11 @@ export const fishSlice = createSlice({
         value: []
     },
     reducers: {
-        addFish: (state, payloadFish) => {
-            state.value.push(payloadFish.payload)
+        addFish: (state, fish) => {
+            state.value.push(fish.payload)
         },
-        removeFish: (state, payloadId) => {
-            state.value = state.value.filter((fish) => fish.id !== payloadId.payload)
+        removeFish: (state, id) => {
+            state.value = state.value.filter((fish) => fish.id !== id.payload)
         },
         clearCart: state => {
             state.value = []
